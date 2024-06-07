@@ -141,7 +141,7 @@
 			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake"
 		},
 		{
-			"path" : "mytree_py/CMakeLists.txt"
+			"path" : "tree_py/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

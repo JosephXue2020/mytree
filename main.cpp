@@ -1,9 +1,8 @@
-
+#include "main.h"
 #include <iostream>
-#include "tree.h"
-#include "itree.h"
-#include "construct.h"
+#include "tree/tree.h"
 
+using namespace std;
 
 ITree<int>* build_tree() {
 	int* data1 = new int(1);
@@ -28,19 +27,13 @@ ITree<int>* build_tree() {
 	int* data6 = new int(6);
 	ITree<int>* tn6 = new Tree<int>("f", data6, false);
 	tn->insert(tn6, "e");
-	
+
 	return tn;
 }
 
+int main() {
+	cout << "main starts to run..." << endl;
 
-//²âÊÔÊÇ·ñÓÐÄÚ´æÐ¹Â©
-void test_memory(int n) {
-	for (int i = 0; i < n; i++) {
-		ITree<int>* tn = build_tree();
-		delete tn;
-		tn = NULL;
-		if (i % 1000 == 0) {
-			std::cout << i << std::endl;
-		}
-	}
+	auto tr = build_tree();
+	cout << tr->str() << endl;
 }

@@ -8,7 +8,7 @@ set(PYBINDPATH D:/CPPCode/extern/pybind11)
 include_directories(${PYTHONPATH}/include ${PYBINDPATH}/include)
  
 # 生成动态库
-add_library(mytree SHARED mytree.cpp)
+add_library(mytree SHARED tree_py.cpp)
  
 # 后缀名改成pyd能够被python引用
 set_target_properties(mytree PROPERTIES SUFFIX ".pyd")

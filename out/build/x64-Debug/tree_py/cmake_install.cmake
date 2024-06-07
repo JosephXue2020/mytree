@@ -1,4 +1,4 @@
-# Install script for directory: D:/CPPCode/extern/mytree/mytree_py
+# Install script for directory: D:/CPPCode/extern/mytree/tree_py
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

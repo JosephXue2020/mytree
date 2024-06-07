@@ -2,13 +2,13 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "mytree_py/mytree.pyd"
+			"path" : "tree_py/mytree.pyd"
 		},
 		{
-			"path" : "mytree_py/mytree.lib"
+			"path" : "tree_py/mytree.lib"
 		},
 		{
-			"path" : "mytree_py/mytree.pdb"
+			"path" : "tree_py/mytree.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -22,7 +22,7 @@
 		],
 		"files" : 
 		[
-			"mytree_py/CMakeLists.txt"
+			"tree_py/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -55,7 +55,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1"
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI"
 				}
 			],
 			"defines" : 
@@ -76,13 +76,21 @@
 				}
 			],
 			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					0
+				],
+				"standard" : "20"
+			},
 			"sourceIndexes" : 
 			[
 				0
 			]
 		}
 	],
-	"id" : "mytree::@19dde7acd50b613911cd",
+	"id" : "mytree::@e905d972ad2685247d4c",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -107,8 +115,8 @@
 	"nameOnDisk" : "mytree.pyd",
 	"paths" : 
 	{
-		"build" : "mytree_py",
-		"source" : "mytree_py"
+		"build" : "tree_py",
+		"source" : "tree_py"
 	},
 	"sourceGroups" : 
 	[
@@ -125,7 +133,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "mytree_py/mytree.cpp",
+			"path" : "tree_py/tree_py.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

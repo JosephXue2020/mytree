@@ -16,21 +16,25 @@
 						"string" : "3.8"
 					},
 					"projectIndex" : 0,
-					"source" : "."
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
 				},
 				{
-					"build" : "mytree_py",
-					"jsonFile" : "directory-mytree_py-Debug-514bdaef316649a5754a.json",
+					"build" : "tree_py",
+					"jsonFile" : "directory-tree_py-Debug-9041cd0ca72afdeb8d8f.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.8"
 					},
 					"parentIndex" : 0,
 					"projectIndex" : 0,
-					"source" : "mytree_py",
+					"source" : "tree_py",
 					"targetIndexes" : 
 					[
-						0
+						1
 					]
 				}
 			],
@@ -46,16 +50,24 @@
 					"name" : "mytree",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
 			"targets" : 
 			[
 				{
+					"directoryIndex" : 0,
+					"id" : "main::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-main-Debug-a86716e07d1f25dbc6d0.json",
+					"name" : "main",
+					"projectIndex" : 0
+				},
+				{
 					"directoryIndex" : 1,
-					"id" : "mytree::@19dde7acd50b613911cd",
-					"jsonFile" : "target-mytree-Debug-d9c3c74d388e930f03cd.json",
+					"id" : "mytree::@e905d972ad2685247d4c",
+					"jsonFile" : "target-mytree-Debug-bcec8588ef8efac0ea12.json",
 					"name" : "mytree",
 					"projectIndex" : 0
 				}

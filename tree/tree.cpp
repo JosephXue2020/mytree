@@ -4,14 +4,14 @@
 #include <vector>
 #include <stdexcept>
 #include "itree.h"
-#include "tree.h"
 #include "node.h"
+#include "tree.h"
 #include <iostream>
 
 
 template <typename T>
 Tree<T>::Tree(std::string id, bool is_root) :
-	Node(id) {
+	Node<T>(id) {
 	this->is_root = is_root;
 	this->is_leaf = true;
 };

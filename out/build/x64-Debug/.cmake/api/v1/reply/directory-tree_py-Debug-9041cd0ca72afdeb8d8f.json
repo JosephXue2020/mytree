@@ -8,7 +8,7 @@
 	"installers" : [],
 	"paths" : 
 	{
-		"build" : "mytree_py",
-		"source" : "mytree_py"
+		"build" : "tree_py",
+		"source" : "tree_py"
 	}
 }
