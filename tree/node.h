@@ -1,19 +1,25 @@
 #pragma once
 #include <iostream>
-#include "inode.h"
 
 //定义树的基础node
-//指针pData必须指向堆内存中的对象，否则析构时会出错。
+
 template<typename T>
-class Node : virtual public INode<T> {
+class Node {
 public:
+	Node();
 	Node(std::string);
+	Node(std::string, T);
 	Node(std::string, T*);
+	Node(const Node<T>&);
 	virtual ~Node();
+	Node<T>& operator=(const Node<T>&);
 	const std::string identifier();
-	T* data();
-	void setData(T*);
-	bool equal(INode<T>*);
+	void setId(const std::string);
+	T& data();
+	void setData(T);
+	bool duplicate(const Node<T>&);
+	bool equal(const Node<T>&);
+	std::string str();
 private:
 	std::string id;
 	T* pData;
