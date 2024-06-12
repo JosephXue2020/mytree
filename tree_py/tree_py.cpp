@@ -15,7 +15,8 @@ void bind_node(py::module& m, const std::string py_class_name) {
         .def("identifier", &Class::identifier)
         .def("setId", &Class::setId)
         .def("data", &Class::data)
-        .def("setData", &Class::setData)
+        .def("setData", py::overload_cast<T>(&Class::setData))
+        .def("setData", py::overload_cast<T*>(&Class::setData))
         .def("duplicate", &Class::duplicate)
         .def("equal", &Class::equal)
         .def("__str__", &Class::str)
@@ -32,7 +33,8 @@ void bind_tree(py::module &m, const std::string py_class_name) {
         .def("identifier", &Class::identifier)
         .def("setId", &Class::setId)
         .def("data", &Class::data)
-        .def("setData", &Class::setData)
+        .def("setData", py::overload_cast<T>(&Class::setData))
+        .def("setData", py::overload_cast<T*>(&Class::setData))
         .def("duplicate", &Class::duplicate)
         .def("equal", &Class::equal)
         .def("__str__", &Class::str)
@@ -59,6 +61,6 @@ PYBIND11_MODULE(mytree, m) {
     //bind_all<std::string>(m, "Node", "Tree");
     bind_all<py::object>(m, "Node", "Tree");
 
-    //bind_node<int>(m, "Node");
-    //bind_node<std::string>(m, "Node");
+    /*bind_node<int>(m, "Node");
+    bind_node<std::string>(m, "Node");*/
 }

@@ -13,10 +13,11 @@ public:
 	Node(const Node<T>&);
 	virtual ~Node();
 	Node<T>& operator=(const Node<T>&);
-	const std::string identifier();
+	const std::string identifier() const;
 	void setId(const std::string);
 	T& data();
 	void setData(T);
+	void setData(T*);
 	bool duplicate(const Node<T>&);
 	bool equal(const Node<T>&);
 	std::string str();

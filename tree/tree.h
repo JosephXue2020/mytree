@@ -14,7 +14,7 @@ public:
 	Tree(std::string, T*, bool);
 	Tree(Tree<T>&);
 	virtual ~Tree();
-	Tree<T>& operator=(const Tree<T>&);
+	Tree<T>& operator=(Tree<T>&);
 	bool isRoot();
 	bool isLeaf();
 	std::vector<Tree<T>*> children();

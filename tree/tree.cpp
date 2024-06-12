@@ -38,7 +38,7 @@ Tree<T>::Tree(Tree<T>& t) :
 
 template <typename T>
 Tree<T>::~Tree() {
-	std::cout << "析构Tree:" << this->identifier() << std::endl;
+	//std::cout << "析构Tree:" << this->identifier() << std::endl;
 	typename std::map<std::string, Tree<T>*>::iterator it;
 	for (it = mChildren.begin(); it != mChildren.end(); it++) {
 		auto pt = it->second;
@@ -47,13 +47,21 @@ Tree<T>::~Tree() {
 }
 
 template<typename T>
-Tree<T>& Tree<T>::operator=(const Tree<T>& t) {
+Tree<T>& Tree<T>::operator=(Tree<T>& t) {
 	setId(t.identifier());
 	setData(t.data());
 	is_root = t.is_root;
 	is_leaf = t.is_leaf;
+
+	// 回收内存
+	typename std::map<std::string, Tree<T>*>::iterator it;
+	for (it = mChildren.begin(); it != mChildren.end(); it++) {
+		auto pt = it->second;
+		delete pt;
+	}
+
 	mChildren.clear();
-	mChildren(t.mChildren);
+	mChildren.insert(t.mChildren.begin(), t.mChildren.end());
 	return *this;
 };
 

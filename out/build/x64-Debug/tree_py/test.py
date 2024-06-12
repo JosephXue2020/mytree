@@ -2,14 +2,14 @@ import mytree
 print(dir(mytree))
 
 # 测试Node
-class T:
-    def __init__(self):
-        pass
+# class T:
+#     def __init__(self):
+#         pass
 
-obj = T()
-n1 = mytree.Node("n1", "string")
-print(n1.identifier())
-print(n1.data())
+# obj = T()
+# n1 = mytree.Node("n1", "string")
+# print(n1.identifier())
+# print(n1.data())
 
 # # 测试Tree
 # obj = mytree.Tree('root', 0, True)
@@ -31,3 +31,6 @@ print(n1.data())
 # print(obj)
 # print(obj.branch('c'))
 # print('traverse:', obj.traverse())
+
+print(mytree.Node("n1", "string").data() + mytree.Node("n2", "string").data())
+print(mytree.Node("n1", 3).data() + mytree.Node("n2", 9).data())

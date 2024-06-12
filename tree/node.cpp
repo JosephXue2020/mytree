@@ -34,7 +34,7 @@ Node<T>::Node(const Node<T>& n) {
 
 template<typename T>
 Node<T>::~Node() {
-	std::cout << "Îö¹¹Node:" << identifier() << std::endl;
+	//std::cout << "Îö¹¹Node:" << identifier() << std::endl;
 	delete pData;
 	pData = nullptr;
 };
@@ -51,7 +51,7 @@ Node<T>& Node<T>::operator=(const Node<T>& n) {
 };
 
 template<typename T>
-const std::string Node<T>::identifier() {
+const std::string Node<T>::identifier() const {
 	return id;
 };
 
@@ -66,11 +66,19 @@ T& Node<T>::data() {
 };
 
 template<typename T>
-void Node<T>::setData(T data_){
+void Node<T>::setData(T data) {
 	if (pData == nullptr) {
 		pData = new T;
 	}
-	*pData = data_;
+	*pData = data;
+};
+
+template<typename T>
+void Node<T>::setData(T* pData_){
+	if (pData == nullptr) {
+		pData = new T;
+	}
+	*pData = *pData_;
 };
 
 template<typename T>

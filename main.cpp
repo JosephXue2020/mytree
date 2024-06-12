@@ -40,24 +40,43 @@ Tree<int>* build_tree() {
 	Tree<int>* t6 = new Tree<int>("f", 6, false);
 	t->insert(*t6, "e");
 
-	cout << t->str() << endl;
 	return t;
 }
 
 void test_tree() {
-	/*Tree<int> t1 = Tree<int>("t1", 99, true);
-	auto children = t1.children();
-	cout << t1.str() << endl;*/
-
+	// ¹¹ÔìÊ÷
 	Tree<int>* t2 = build_tree();
 	cout << t2->str() << endl;
+
+	// ²âÊÔsearch¹¦ÄÜ
 	cout << t2->search("e")->str() << endl << endl;
 
-	//// ²âÊÔbranch
-	//auto vec = t2->branch("e");
-	//for (auto it = vec.begin(); it != vec.end(); it++) {
-	//	cout << (*it)->str() << endl;
-	//}
+	// ²âÊÔbranch
+	auto vec = t2->branch("e");
+	for (auto it = vec.begin(); it != vec.end(); it++) {
+		cout << (*it)->identifier() << endl;
+	}
+
+	// ²âÊÔsetData
+	auto subtree_e = t2->search("e");
+	auto e_data = subtree_e->data();
+	subtree_e->setData(55);
+	cout << "²âÊÔ¸³Öµ£º" << e_data << ":" << subtree_e->data() << endl;
+
+
+	// ²âÊÔ¸³Öµ
+	Tree<int>* t3 = new Tree<int>;
+	*t3 = *t2;
+	cout << "²âÊÔ¸³Öµ£º" << t3->str() << endl;
+
+	// ²âÊÔ±éÀú
+	cout << "²âÊÔ±éÀú£º";
+	vec = t2->traverse();
+	std::vector<Tree<int>*>::iterator it;
+	for (it = vec.begin(); it != vec.end(); it++) {
+		cout << (*it)->identifier() << " ";
+	}
+	
 
 	// ²âÊÔÎö¹¹
 	delete t2;
@@ -73,5 +92,4 @@ int main() {
 
 	test_tree();
 
-	cin.get();
 }
