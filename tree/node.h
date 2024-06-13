@@ -11,8 +11,10 @@ public:
 	Node(std::string, T);
 	Node(std::string, T*);
 	Node(const Node<T>&);
+	Node(const Node<T>&&);
 	virtual ~Node();
 	Node<T>& operator=(const Node<T>&);
+	Node<T>& operator=(const Node<T>&&);
 	const std::string identifier() const;
 	void setId(const std::string);
 	T& data();

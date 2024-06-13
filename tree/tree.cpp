@@ -33,7 +33,12 @@ Tree<T>::Tree(std::string id_, T* pData_, bool is_root) :
 
 template<typename T>
 Tree<T>::Tree(Tree<T>& t) : 
-	Node<T>{ t.identifier()}, is_root{ t.is_root }, is_leaf{t.is_leaf}, mChildren(t.mChildren){
+	Node<T>{ t.identifier(), t.data()}, is_root{t.is_root}, is_leaf{t.is_leaf}{
+	typename std::map<std::string, Tree<T>*>::iterator it;
+	for (it = mChildren.begin(); it != mChildren.end(); it++) {
+		auto pt = it->second;
+		mChildren[it->first] = new Tree<T>(*pt);
+	}
 };
 
 template <typename T>
@@ -61,7 +66,11 @@ Tree<T>& Tree<T>::operator=(Tree<T>& t) {
 	}
 
 	mChildren.clear();
-	mChildren.insert(t.mChildren.begin(), t.mChildren.end());
+
+	for (it = t.mChildren.begin(); it != t.mChildren.end(); it++) {
+		auto pt = it->second;
+		mChildren[it->first] = new Tree<T>(*pt);
+	}
 	return *this;
 };
 
@@ -111,22 +120,23 @@ Tree<T>* Tree<T>::search(std::string id_) {
 };
 
 template <typename T>
-Tree<T>* Tree<T>::insert(Tree<T>& subtree) {
-	std::string subid = subtree.identifier();
+Tree<T>* Tree<T>::insert(Tree<T>* subtree) {
+	std::string subid = subtree->identifier();
 	typename std::map<std::string, Tree<T>*>::iterator pairFound = mChildren.find(subid);
 	if (pairFound != mChildren.end()) {
 		return nullptr;
 	}
 
-	mChildren[subid] = &subtree;
+	Tree<T>* new_subtree = new Tree<T>(*subtree);
+	mChildren[subid] = new_subtree;
 	if (isLeaf()) {
 		is_leaf = false;
 	}
-	return &subtree;
+	return new_subtree;
 };
 
 template <typename T>
-Tree<T>* Tree<T>::insert(Tree<T>& subtree, std::string targetId) {
+Tree<T>* Tree<T>::insert(Tree<T>* subtree, std::string targetId) {
 	Tree<T>* target = this->search(targetId);
 	if (target == nullptr) {
 		return nullptr;

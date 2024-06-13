@@ -26,19 +26,27 @@ Tree<int>* build_tree() {
 	Tree<int>* t = new Tree<int>("a", 1, true);
 
 	Tree<int>* t2 = new Tree<int>("b", 2, false);
-	auto pt2 = t->insert(*t2);
+	auto pt2 = t->insert(t2);
 
 	Tree<int>* t3 = new Tree<int>("c", 3, false);
-	t->insert(*t3);
+	t->insert(t3);
 
 	Tree<int>* t4 = new Tree<int>("d", 4, false);
-	t->insert(*t4);
+	t->insert(t4);
 
 	Tree<int>* t5 = new Tree<int>("e", 5, false);
-	pt2->insert(*t5);
+	pt2->insert(t5);
 
 	Tree<int>* t6 = new Tree<int>("f", 6, false);
-	t->insert(*t6, "e");
+	t->insert(t6, "e");
+
+	// 多插入一些
+	int num = 10;
+	for (int i = 0; i < num; i++) {
+		auto temp = new Tree<int>(to_string(i), i, false);
+		t->insert(temp);
+		delete temp;
+	}
 
 	return t;
 }
@@ -85,11 +93,7 @@ void test_tree() {
 int main() {
 	cout << "main starts to run..." << endl;
 
-	// test_node();
-
-	/*auto tr = build_tree();
-	cout << tr->str() << endl;*/
+	//test_node();
 
 	test_tree();
-
 }

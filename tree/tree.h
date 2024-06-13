@@ -19,8 +19,8 @@ public:
 	bool isLeaf();
 	std::vector<Tree<T>*> children();
 	Tree<T>* search(std::string);
-	Tree<T>* insert(Tree<T>&);
-	Tree<T>* insert(Tree<T>&, std::string);
+	Tree<T>* insert(Tree<T>*);
+	Tree<T>* insert(Tree<T>*, std::string);
 	bool remove(std::string);
 	std::vector<Tree<T>*> traverse();
 	std::vector<Tree<T>*> branch(std::string);
