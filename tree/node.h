@@ -9,23 +9,18 @@ public:
 	Node();
 	Node(std::string);
 	Node(std::string, T);
-	Node(std::string, T*);
-	Node(const Node<T>&);
-	Node(const Node<T>&&);
 	virtual ~Node();
-	Node<T>& operator=(const Node<T>&);
-	Node<T>& operator=(const Node<T>&&);
 	const std::string identifier() const;
 	void setId(const std::string);
-	T& data();
+	const T data();
 	void setData(T);
 	void setData(T*);
-	bool duplicate(const Node<T>&);
+	bool sameId(const Node<T>&);
 	bool equal(const Node<T>&);
 	std::string str();
-private:
-	std::string id;
-	T* pData;
+protected:
+	std::string _id;
+	T _data;
 };
 
 #include "node.cpp"

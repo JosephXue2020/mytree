@@ -19,7 +19,7 @@ void test_node() {
 
 	Node<int> n3(n1);
 	cout << n3.str() << endl;
-	cout << n1.duplicate(n3) << endl;
+	cout << n1.sameId(n3) << endl;
 }
 
 Tree<int>* build_tree() {
